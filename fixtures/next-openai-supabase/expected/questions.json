@@ -1,0 +1,95 @@
+{
+  "schema": 1,
+  "llm_prices": {
+    "source": "snapshot",
+    "fetched_at": "2026-11-11"
+  },
+  "questions": [
+    {
+      "id": "models.openai",
+      "type": "model",
+      "service": "openai",
+      "prompt": "Which model does production use for OpenAI?",
+      "note": "found in code: gpt-4o",
+      "options": [
+        {
+          "value": "openai/gpt-4o",
+          "label": "GPT-4o",
+          "description": "$2.5 in / $10 out per 1M tokens",
+          "input_per_1m": 2.5,
+          "output_per_1m": 10
+        },
+        {
+          "value": "~openai/gpt-luna-latest",
+          "label": "GPT Luna Latest",
+          "description": "$0.1 in / $0.5 out per 1M tokens",
+          "input_per_1m": 0.1,
+          "output_per_1m": 0.5
+        },
+        {
+          "value": "~openai/gpt-mini-latest",
+          "label": "GPT Mini Latest",
+          "description": "$0.75 in / $4.5 out per 1M tokens",
+          "input_per_1m": 0.75,
+          "output_per_1m": 4.5
+        },
+        {
+          "value": "~openai/gpt-terra-latest",
+          "label": "GPT Terra Latest",
+          "description": "$1 in / $5 out per 1M tokens",
+          "input_per_1m": 1,
+          "output_per_1m": 5
+        }
+      ],
+      "other": true,
+      "default": "openai/gpt-4o"
+    },
+    {
+      "id": "plans.supabase",
+      "type": "plan_tier",
+      "service": "supabase",
+      "prompt": "Which Supabase plan does production use?",
+      "note": null,
+      "options": [
+        {
+          "value": "free",
+          "label": "free",
+          "description": "$0/month base"
+        },
+        {
+          "value": "pro",
+          "label": "pro",
+          "description": "$25/month base"
+        }
+      ],
+      "other": false,
+      "default": "free"
+    },
+    {
+      "id": "plans.vercel",
+      "type": "plan_tier",
+      "service": "vercel",
+      "prompt": "Which Vercel plan does production use?",
+      "note": "low confidence (package:next)",
+      "options": [
+        {
+          "value": "hobby",
+          "label": "hobby",
+          "description": "$0/month base"
+        },
+        {
+          "value": "pro",
+          "label": "pro",
+          "description": "$20/month base"
+        },
+        {
+          "value": "none",
+          "label": "not used",
+          "description": "Drop this service from the bill"
+        }
+      ],
+      "other": false,
+      "default": "hobby"
+    }
+  ]
+}

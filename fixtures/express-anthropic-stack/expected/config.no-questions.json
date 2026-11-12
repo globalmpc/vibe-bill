@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "models": {
+    "anthropic": "~anthropic/claude-sonnet-latest"
+  },
+  "plans": {
+    "clerk": "hobby",
+    "resend": "free"
+  },
+  "providers": {},
+  "assumptions": {},
+  "assumed": [
+    "models.anthropic",
+    "plans.clerk",
+    "plans.resend"
+  ]
+}

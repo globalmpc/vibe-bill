@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "services": [
+    {
+      "id": "openai",
+      "evidence": [
+        "env:OPENAI_API_KEY",
+        "package:openai"
+      ],
+      "confidence": "high",
+      "model": "gpt-4o",
+      "model_reason": null
+    },
+    {
+      "id": "supabase",
+      "evidence": [
+        "env:NEXT_PUBLIC_SUPABASE_URL",
+        "package:@supabase/supabase-js"
+      ],
+      "confidence": "high",
+      "model": null,
+      "model_reason": null
+    },
+    {
+      "id": "vercel",
+      "evidence": [
+        "package:next"
+      ],
+      "confidence": "low",
+      "model": null,
+      "model_reason": null
+    }
+  ],
+  "unknown_services": [],
+  "flags": [],
+  "env_names": [
+    "NEXT_PUBLIC_SUPABASE_ANON_KEY",
+    "NEXT_PUBLIC_SUPABASE_URL",
+    "OPENAI_API_KEY",
+    "SUPABASE_SERVICE_ROLE_KEY"
+  ]
+}

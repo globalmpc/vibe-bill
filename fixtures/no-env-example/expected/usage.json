@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "call_sites": [
+    {
+      "service": "openai",
+      "feature": "summarize",
+      "file": "src/llm.js",
+      "line": 9,
+      "trigger": "per_message",
+      "est_input_tokens": 1000,
+      "est_output_tokens": 200,
+      "notes": "model and base URL from env; no caching of repeated texts"
+    }
+  ],
+  "traps": [
+    {
+      "id": "no_prompt_cache",
+      "call_site": 0,
+      "fix": "Cache summaries of identical text"
+    }
+  ]
+}

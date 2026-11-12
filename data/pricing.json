@@ -1,0 +1,101 @@
+{
+  "schema": 1,
+  "services": {
+    "supabase": {
+      "name": "Supabase",
+      "source_url": "https://supabase.com/pricing",
+      "checked_at": "2026-11-11",
+      "plans": {
+        "free": {
+          "base_monthly": 0,
+          "included": { "mau": 50000, "db_gb": 0.5, "egress_gb": 5, "storage_gb": 1 },
+          "overage": null,
+          "upgrade_to": "pro"
+        },
+        "pro": {
+          "base_monthly": 25,
+          "included": { "mau": 100000, "db_gb": 8, "egress_gb": 250, "storage_gb": 100 },
+          "overage": { "mau": 0.00325, "db_gb": 0.125, "egress_gb": 0.09, "storage_gb": 0.0213 }
+        }
+      },
+      "default_plan": "free",
+      "needs_check": true
+    },
+    "vercel": {
+      "name": "Vercel",
+      "source_url": "https://vercel.com/docs/pricing",
+      "checked_at": "2026-11-11",
+      "plans": {
+        "hobby": {
+          "base_monthly": 0,
+          "included": { "bandwidth_gb": 100, "function_invocations": 1000000, "function_gb_hours": 360, "image_optimizations": 5000 },
+          "overage": null,
+          "upgrade_to": "pro"
+        },
+        "pro": {
+          "base_monthly": 20,
+          "usage_credit_usd": 20,
+          "included": {},
+          "overage": { "bandwidth_gb": 0.15, "function_invocations": 0.0000006, "function_gb_hours": 0.0106, "image_optimizations": 0.00005 }
+        }
+      },
+      "default_plan": "hobby",
+      "needs_check": true
+    },
+    "clerk": {
+      "name": "Clerk",
+      "source_url": "https://clerk.com/pricing",
+      "checked_at": "2026-11-11",
+      "plans": {
+        "hobby": {
+          "base_monthly": 0,
+          "included": { "mau": 50000 },
+          "overage": null,
+          "upgrade_to": "pro"
+        },
+        "pro": {
+          "base_monthly": 25,
+          "included": { "mau": 50000 },
+          "overage": { "mau": 0.02 }
+        }
+      },
+      "default_plan": "hobby",
+      "needs_check": false
+    },
+    "resend": {
+      "name": "Resend",
+      "source_url": "https://resend.com/pricing",
+      "checked_at": "2026-11-11",
+      "plans": {
+        "free": {
+          "base_monthly": 0,
+          "included": { "emails": 3000 },
+          "overage": null,
+          "upgrade_to": "pro"
+        },
+        "pro": {
+          "base_monthly": 20,
+          "included": { "emails": 50000 },
+          "overage": { "emails": 0.0009 }
+        }
+      },
+      "default_plan": "free",
+      "needs_check": true
+    },
+    "stripe": {
+      "name": "Stripe",
+      "source_url": "https://stripe.com/pricing",
+      "checked_at": "2026-11-11",
+      "plans": {
+        "standard": {
+          "base_monthly": 0,
+          "included": {},
+          "overage": null,
+          "fee": { "percent": 2.9, "fixed_usd": 0.3 }
+        }
+      },
+      "default_plan": "standard",
+      "needs_check": false
+    }
+  }
+}

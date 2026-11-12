@@ -1,0 +1,25 @@
+node_modules/
+coverage/
+.DS_Store
+
+# real env files never committed (fixtures use fake values and are allowed)
+.env
+.env.*
+!.env.example
+!fixtures/**/.env
+
+# vibe-bill outputs when run on this repo or fixtures
+.vibe-bill/out/
+fixtures/**/.vibe-bill/out/
+
+# agent handoff notes stay local
+.claude/work/*
+!.claude/work/.gitkeep
+.claude/settings.local.json
+
+# reviewer agent notes stay local
+.claude/agent-memory/
+
+# local dev tooling, never committed (org policy: public repo gets only what we pick)
+.claude/settings.json
+.claude/skills/

@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "models": {
+    "openai": "~openai/gpt-mini-latest"
+  },
+  "plans": {},
+  "providers": {
+    "OPENAI_BASE_URL": "openai"
+  },
+  "assumptions": {},
+  "assumed": [
+    "models.openai",
+    "providers.OPENAI_BASE_URL"
+  ]
+}

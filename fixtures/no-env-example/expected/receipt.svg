@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="466" viewBox="0 0 600 466" font-family="'Liberation Mono','Cousine','Courier New',monospace" fill="#1f1f1f">
+<rect width="600" height="466" fill="#fbf8f1"/>
+<text x="32" y="52" font-size="20">VIBE BILL — no-env-example</text>
+<text x="300" y="78" font-size="16" text-anchor="middle">ESTIMATE</text>
+<text x="300" y="102" font-size="16" text-anchor="middle">@ 10,000 users / month</text>
+<line x1="32" y1="116" x2="568" y2="116" stroke="#6b6b6b" stroke-dasharray="4 4"/>
+<path d="M39,130 l7,12 h-14 z" fill="#b45309"/><rect x="38" y="134" width="2" height="4" fill="#fbf8f1"/><rect x="38" y="139" width="2" height="2" fill="#fbf8f1"/>
+<text x="52" y="142" font-size="16">OpenAI: summarize</text>
+<text x="568" y="142" font-size="16" text-anchor="end">$1,930.50</text>
+<text x="70" y="166" font-size="16" fill="#6b6b6b">openai/gpt-mini-latest</text>
+<line x1="32" y1="180" x2="568" y2="180" stroke="#6b6b6b" stroke-dasharray="4 4"/>
+<text x="32" y="208" font-size="20">TOTAL</text>
+<text x="568" y="208" font-size="20" text-anchor="end">$1,930.50</text>
+<line x1="32" y1="224" x2="568" y2="224" stroke="#6b6b6b" stroke-dasharray="4 4"/>
+<text x="32" y="250" font-size="16">Top fix: Cache summaries of identical text → saves</text>
+<text x="52" y="274" font-size="16">~$446/month</text>
+<text x="32" y="298" font-size="16">Assumes: 10,000 users/month, 30% active daily ·</text>
+<text x="52" y="322" font-size="16">summarize: 13 calls/active user/day, 1,000 in + 200</text>
+<text x="52" y="346" font-size="16">out tokens · model GPT Mini Latest (assumed)</text>
+<text x="32" y="370" font-size="16" fill="#6b6b6b">LLM prices: OpenRouter snapshot 2026-11-11</text>
+<line x1="32" y1="384" x2="568" y2="384" stroke="#6b6b6b" stroke-dasharray="4 4"/>
+<text x="300" y="410" font-size="16" text-anchor="middle" fill="#6b6b6b">github.com/globalmpc/vibe-bill</text>
+<text x="300" y="434" font-size="16" text-anchor="middle" fill="#6b6b6b">search &quot;vibe-bill&quot; on GitHub</text>
+</svg>

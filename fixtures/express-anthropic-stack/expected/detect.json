@@ -1,0 +1,53 @@
+{
+  "schema": 1,
+  "services": [
+    {
+      "id": "anthropic",
+      "evidence": [
+        "env:ANTHROPIC_API_KEY",
+        "package:@anthropic-ai/sdk"
+      ],
+      "confidence": "high",
+      "model": "claude-3-5-sonnet-20241022",
+      "model_reason": null
+    },
+    {
+      "id": "clerk",
+      "evidence": [
+        "env:CLERK_SECRET_KEY",
+        "package:@clerk/clerk-sdk-node"
+      ],
+      "confidence": "high",
+      "model": null,
+      "model_reason": null
+    },
+    {
+      "id": "resend",
+      "evidence": [
+        "env:RESEND_API_KEY",
+        "package:resend"
+      ],
+      "confidence": "high",
+      "model": null,
+      "model_reason": null
+    },
+    {
+      "id": "stripe",
+      "evidence": [
+        "env:STRIPE_SECRET_KEY",
+        "package:stripe"
+      ],
+      "confidence": "high",
+      "model": null,
+      "model_reason": null
+    }
+  ],
+  "unknown_services": [],
+  "flags": [],
+  "env_names": [
+    "ANTHROPIC_API_KEY",
+    "CLERK_SECRET_KEY",
+    "RESEND_API_KEY",
+    "STRIPE_SECRET_KEY"
+  ]
+}

@@ -1,0 +1,2 @@
+{ "name": "support-api", "version": "0.1.0", "private": true, "type": "module",
+  "dependencies": { "express": "4.19.2", "@anthropic-ai/sdk": "0.24.0", "resend": "3.2.0", "stripe": "15.8.0", "@clerk/clerk-sdk-node": "5.0.0" } }

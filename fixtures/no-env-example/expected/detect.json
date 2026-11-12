@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "services": [
+    {
+      "id": "openai",
+      "evidence": [
+        "env:OPENAI_API_KEY",
+        "package:openai"
+      ],
+      "confidence": "high",
+      "model": null,
+      "model_reason": "set via env OPENAI_MODEL"
+    }
+  ],
+  "unknown_services": [
+    {
+      "hint": "env:REPLICATE_API_TOKEN"
+    }
+  ],
+  "flags": [
+    {
+      "type": "base_url",
+      "env": "OPENAI_BASE_URL",
+      "service": "openai"
+    },
+    {
+      "type": "model_in_env",
+      "env": "OPENAI_MODEL",
+      "service": "openai"
+    }
+  ],
+  "env_names": [
+    "OPENAI_API_KEY",
+    "OPENAI_BASE_URL",
+    "OPENAI_MODEL",
+    "REPLICATE_API_TOKEN"
+  ]
+}

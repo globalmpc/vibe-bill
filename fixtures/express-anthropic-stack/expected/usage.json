@@ -1,0 +1,25 @@
+{
+  "schema": 1,
+  "call_sites": [
+    {
+      "service": "anthropic",
+      "feature": "ticket reply",
+      "file": "src/server.js",
+      "line": 14,
+      "trigger": "per_message",
+      "est_input_tokens": 300,
+      "est_output_tokens": 300,
+      "notes": "one call per POST to the ticket route; reply is emailed"
+    }
+  ],
+  "traps": [
+    {
+      "id": "top_model_for_trivial_task",
+      "call_site": 0,
+      "fix": "Use a Haiku-class model for ticket replies"
+    }
+  ],
+  "per_user": {
+    "emails_per_month": 90
+  }
+}

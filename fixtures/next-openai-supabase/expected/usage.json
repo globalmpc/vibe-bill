@@ -1,0 +1,30 @@
+{
+  "schema": 1,
+  "call_sites": [
+    {
+      "service": "openai",
+      "feature": "chat reply",
+      "file": "app/api/chat/route.ts",
+      "line": 8,
+      "trigger": "per_keystroke",
+      "est_input_tokens": 50,
+      "est_output_tokens": 300,
+      "notes": "called from the chat input onChange; sends only the current text"
+    }
+  ],
+  "traps": [
+    {
+      "id": "keystroke_llm_call",
+      "call_site": 0,
+      "fix": "Call the API on submit or debounce typing by 500 ms"
+    },
+    {
+      "id": "public_ai_endpoint_no_rate_limit",
+      "call_site": 0,
+      "fix": "Require sign-in and add a per-user rate limit to the chat endpoint"
+    }
+  ],
+  "per_user": {
+    "storage_mb": 0
+  }
+}

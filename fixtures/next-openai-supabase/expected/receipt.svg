@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="586" viewBox="0 0 600 586" font-family="'Liberation Mono','Cousine','Courier New',monospace" fill="#1f1f1f">
+<rect width="600" height="586" fill="#fbf8f1"/>
+<text x="32" y="52" font-size="20">VIBE BILL — next-openai-supabase</text>
+<text x="300" y="78" font-size="16" text-anchor="middle">ESTIMATE</text>
+<text x="300" y="102" font-size="16" text-anchor="middle">@ 10,000 users / month</text>
+<line x1="32" y1="116" x2="568" y2="116" stroke="#6b6b6b" stroke-dasharray="4 4"/>
+<path d="M39,130 l7,12 h-14 z" fill="#b45309"/><rect x="38" y="134" width="2" height="4" fill="#fbf8f1"/><rect x="38" y="139" width="2" height="2" fill="#fbf8f1"/>
+<text x="52" y="142" font-size="16">OpenAI: chat reply</text>
+<text x="568" y="142" font-size="16" text-anchor="end">$112,500.00</text>
+<text x="70" y="166" font-size="16" fill="#6b6b6b">openai/gpt-4o</text>
+<text x="52" y="190" font-size="16">Vercel</text>
+<text x="568" y="190" font-size="16" text-anchor="end">$89.37</text>
+<text x="70" y="214" font-size="16" fill="#6b6b6b">pro (upgraded from hobby)</text>
+<text x="52" y="238" font-size="16">Supabase</text>
+<text x="568" y="238" font-size="16" text-anchor="end">$44.50</text>
+<text x="70" y="262" font-size="16" fill="#6b6b6b">pro (upgraded from free)</text>
+<line x1="32" y1="276" x2="568" y2="276" stroke="#6b6b6b" stroke-dasharray="4 4"/>
+<text x="32" y="304" font-size="20">TOTAL</text>
+<text x="568" y="304" font-size="20" text-anchor="end">$112,633.87</text>
+<line x1="32" y1="320" x2="568" y2="320" stroke="#6b6b6b" stroke-dasharray="4 4"/>
+<text x="32" y="346" font-size="16">Top fix: Call the API on submit or debounce typing by</text>
+<text x="52" y="370" font-size="16">500 ms → saves ~$109,709/month</text>
+<text x="32" y="394" font-size="16">Assumes: 10,000 users/month, 30% active daily · chat</text>
+<text x="52" y="418" font-size="16">reply: 400 calls/active user/day, 50 in + 300 out</text>
+<text x="52" y="442" font-size="16">tokens · model GPT-4o (assumed)</text>
+<text x="32" y="466" font-size="16" fill="#6b6b6b">LLM prices: OpenRouter snapshot 2026-11-11 · Other</text>
+<text x="52" y="490" font-size="16" fill="#6b6b6b">prices checked 2026-11-11</text>
+<line x1="32" y1="504" x2="568" y2="504" stroke="#6b6b6b" stroke-dasharray="4 4"/>
+<text x="300" y="530" font-size="16" text-anchor="middle" fill="#6b6b6b">github.com/globalmpc/vibe-bill</text>
+<text x="300" y="554" font-size="16" text-anchor="middle" fill="#6b6b6b">search &quot;vibe-bill&quot; on GitHub</text>
+</svg>
