@@ -126,3 +126,7 @@ Price corrections are the most useful help. See [CONTRIBUTING.md](CONTRIBUTING.m
 ## License
 
 MIT, see [LICENSE](LICENSE). Third-party parts bundled in `skills/vibe-bill/scripts/` keep their own licenses and are listed in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+
+---
+
+Maintained by [Global MPC (Mineral Project Coin)](https://globalmpc.tech). Official site: https://globalmpc.tech
