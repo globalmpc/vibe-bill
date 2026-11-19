@@ -80,3 +80,17 @@ test("services sorted by id", () => {
   const d = tmp({ "package.json": pkg(["openai", "@anthropic-ai/sdk", "@google/genai"]) });
   expect(detect(d).services.map((s) => s.id)).toEqual(["anthropic", "google", "openai"]);
 });
+
+test("php/laravel: composer packages, env patterns, model literal", () => {
+  const d = tmp({
+    "composer.json": JSON.stringify({ require: { "openai-php/laravel": "1" }, "require-dev": { "anthropic-ai/sdk": "1" } }),
+    "app/a.php": "<?php env('OPENAI_API_KEY'); getenv('ANTHROPIC_API_KEY'); $_ENV['GEMINI_API_KEY']; $_SERVER['RESEND_API_KEY'];",
+    "app/b.php": "<?php getenv('FOO'); $app->env('NOPE'); App::env('NOPE2'); ['k'=>env('ARROW_KEY')]; ['model' => 'gpt-4o'];",
+  });
+  const r = detect(d);
+  expect(r.services.map((s) => s.id)).toEqual(["anthropic", "google", "openai", "resend"]);
+  expect(r.services.find((s) => s.id === "openai")!.evidence).toContain("package:openai-php/laravel");
+  expect(r.services.find((s) => s.id === "anthropic")!.evidence).toContain("package:anthropic-ai/sdk");
+  expect(r.services.find((s) => s.id === "openai")!.model).toBe("gpt-4o");
+  expect(r.env_names).toEqual(["ANTHROPIC_API_KEY", "ARROW_KEY", "FOO", "GEMINI_API_KEY", "OPENAI_API_KEY", "RESEND_API_KEY"]);
+});

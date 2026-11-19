@@ -1,0 +1,10 @@
+{
+  "name": "vibe-bill",
+  "description": "Find out what your vibe-coded app will cost to run at 100 to 100,000 users, and get a shareable receipt plus the code patterns that inflate your bill.",
+  "version": "0.1.0",
+  "author": { "name": "Global MPC" },
+  "homepage": "https://github.com/globalmpc/vibe-bill",
+  "repository": "https://github.com/globalmpc/vibe-bill",
+  "license": "MIT",
+  "keywords": ["vibe-coding", "claude-code", "skill", "cost", "pricing", "llm", "billing", "estimate"]
+}

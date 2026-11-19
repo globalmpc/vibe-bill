@@ -8,22 +8,22 @@ export type Detect = { schema: 1; services: Service[]; unknown_services: { hint:
 
 const LLM = new Set(["openai", "anthropic", "google", "openrouter"]);
 const SERVICES: { id: string; pkgs: string[]; env: string[]; prefix: string[] }[] = [
-  { id: "openai", pkgs: ["openai", "@ai-sdk/openai"], env: ["OPENAI_API_KEY"], prefix: ["OPENAI"] },
-  { id: "anthropic", pkgs: ["@anthropic-ai/sdk", "anthropic", "@ai-sdk/anthropic"], env: ["ANTHROPIC_API_KEY"], prefix: ["ANTHROPIC"] },
-  { id: "google", pkgs: ["@google/genai", "@google/generative-ai", "google-genai", "google.genai", "google.generativeai", "@ai-sdk/google"], env: ["GEMINI_API_KEY", "GOOGLE_API_KEY"], prefix: ["GEMINI", "GOOGLE"] },
+  { id: "openai", pkgs: ["openai", "@ai-sdk/openai", "openai-php/client", "openai-php/laravel"], env: ["OPENAI_API_KEY"], prefix: ["OPENAI"] },
+  { id: "anthropic", pkgs: ["@anthropic-ai/sdk", "anthropic", "@ai-sdk/anthropic", "anthropic-ai/sdk", "anthropic-php/client"], env: ["ANTHROPIC_API_KEY"], prefix: ["ANTHROPIC"] },
+  { id: "google", pkgs: ["@google/genai", "@google/generative-ai", "google-genai", "google.genai", "google.generativeai", "@ai-sdk/google", "google-gemini-php/client", "google-gemini-php/laravel"], env: ["GEMINI_API_KEY", "GOOGLE_API_KEY"], prefix: ["GEMINI", "GOOGLE"] },
   { id: "openrouter", pkgs: ["@openrouter/ai-sdk-provider"], env: ["OPENROUTER_API_KEY"], prefix: ["OPENROUTER"] },
   { id: "supabase", pkgs: ["@supabase/supabase-js", "@supabase/ssr", "supabase"], env: ["SUPABASE_URL", "NEXT_PUBLIC_SUPABASE_URL"], prefix: ["SUPABASE"] },
   { id: "vercel", pkgs: [], env: [], prefix: ["VERCEL"] },
   { id: "clerk", pkgs: [], env: ["CLERK_SECRET_KEY"], prefix: ["CLERK"] },
-  { id: "resend", pkgs: ["resend"], env: ["RESEND_API_KEY"], prefix: ["RESEND"] },
-  { id: "stripe", pkgs: ["stripe", "@stripe/stripe-js"], env: ["STRIPE_SECRET_KEY"], prefix: ["STRIPE"] },
+  { id: "resend", pkgs: ["resend", "resend/resend-php", "resend/resend-laravel"], env: ["RESEND_API_KEY"], prefix: ["RESEND"] },
+  { id: "stripe", pkgs: ["stripe", "@stripe/stripe-js", "stripe/stripe-php"], env: ["STRIPE_SECRET_KEY"], prefix: ["STRIPE"] },
 ];
 // ponytail: hand lists; grow from Phase 7 runs.
 const PAID_SDKS = new Set("replicate cohere-ai groq-sdk @mistralai/mistralai together-ai @pinecone-database/pinecone twilio @sendgrid/mail postmark elevenlabs @deepgram/sdk @upstash/redis @vercel/blob @vercel/kv @vercel/postgres firebase firebase-admin algoliasearch @ai-sdk/mistral @ai-sdk/groq @ai-sdk/cohere".split(" "));
 const GENERIC = new Set("JWT SESSION NEXTAUTH AUTH BETTER COOKIE ENCRYPTION APP WEBHOOK CRON SECRET".split(" "));
 const DEPLOY_FILES = ["netlify.toml", "wrangler.toml", "fly.toml", "render.yaml", "railway.json", "railway.toml", "Dockerfile", "app.yaml", "amplify.yml", "firebase.json"];
 const IGNORE = new Set("node_modules .git .vibe-bill .vercel .next .nuxt .svelte-kit .turbo .cache dist build out coverage venv .venv __pycache__ vendor target".split(" "));
-const CODE_EXT = new Set(".js .jsx .ts .tsx .mjs .cjs .mts .cts .py .vue .svelte .astro".split(" "));
+const CODE_EXT = new Set(".js .jsx .ts .tsx .mjs .cjs .mts .cts .py .vue .svelte .astro .php".split(" "));
 const MAX = 1024 * 1024;
 const MODEL_ENV = /(?:^|_)MODEL(?:_ID|_NAME)?$/;
 
@@ -68,6 +68,11 @@ export function detect(root: string): Detect {
       try {
         const j = JSON.parse(read(root, f));
         for (const k of ["dependencies", "devDependencies", "peerDependencies", "optionalDependencies"]) Object.keys(j?.[k] ?? {}).forEach((d) => pkgs.add(d));
+      } catch { /* ignore */ }
+    } else if (b === "composer.json") {
+      try {
+        const j = JSON.parse(read(root, f));
+        for (const k of ["require", "require-dev"]) Object.keys(j?.[k] ?? {}).forEach((d) => pkgs.add(d));
       } catch { /* ignore */ }
     } else if (/^requirements.*\.txt$/.test(b)) {
       for (const l of read(root, f).split("\n")) {

@@ -27,6 +27,10 @@ const CODE_PATTERNS = [
   /os\.environ\.get\(\s*["'](\w+)["']/g,
   /os\.getenv\(\s*["'](\w+)["']/g,
   /Deno\.env\.get\(\s*["'](\w+)["']/g,
+  /(?<![\w$:])(?<!->)env\(\s*["'](\w+)["']/g,
+  /\bgetenv\(\s*["'](\w+)["']/g,
+  /\$_ENV\[\s*["'](\w+)["']\s*\]/g,
+  /\$_SERVER\[\s*["'](\w+)["']\s*\]/g,
 ];
 
 function matchAll(text: string, re: RegExp): string[] {

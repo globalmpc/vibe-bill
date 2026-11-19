@@ -17,7 +17,7 @@ Estimate the running cost of the app in the project directory and produce a rece
 
 Rules:
 - Never Read, Grep, Glob-with-content or `cat` a file whose basename starts with `.env`. Only `.env.example`, `.env.sample` and `.env.template` are allowed.
-- Every Grep call sets `type` (js, ts, py) or a `glob` of source files such as `**/*.{ts,tsx,js,jsx,mjs,cjs,py}`.
+- Every Grep call sets `type` (js, ts, py, php) or a `glob` of source files such as `**/*.{ts,tsx,js,jsx,mjs,cjs,py,php}`.
 - No Bash except the `V` commands.
 - Env variable names come from `P/.vibe-bill/out/detect.json` only. Never print or write env values.
 - Write files only under `P/.vibe-bill/`. Never edit `pricing.json` or the bundle.
@@ -49,7 +49,7 @@ Unanswered or overflow questions are assumed from defaults by step 5 and asked o
 
 ## 3. Code analysis: write `P/.vibe-bill/out/usage.json`
 
-1. Find LLM call sites with Grep: `chat.completions.create|responses.create|messages.create|generateContent|generateText|streamText|generateObject|streamObject|embeddings.create`, plus the client names found in the code. Read each call site and its caller to find what triggers it.
+1. Find LLM call sites with Grep: `chat.completions.create|responses.create|messages.create|generateContent|generateText|streamText|generateObject|streamObject|embeddings.create|->chat\(\)->create|->responses\(\)->create|->messages\(\)->create|api\.openai\.com|api\.anthropic\.com`, plus the client names found in the code. Read each call site and its caller to find what triggers it.
 2. Write the file:
 
 ```json
@@ -126,6 +126,6 @@ If calc or render reports a validation error, fix the named field in `usage.json
 
 - Copy the two summary lines that `render` printed (`total at ...` and `top fix: ...` or `top risk: ...`) verbatim.
 - `Receipt: P/.vibe-bill/out/receipt.png` (use `receipt.svg` if render printed `receipt.png skipped`) and `Report: P/.vibe-bill/out/report.md`.
-- If `P/.vibe-bill/config.json` has `assumed` keys: `Some answers were assumed; edit .vibe-bill/config.json or rerun /vibe-bill to answer them.`
+- If `P/.vibe-bill/config.json` has `assumed` keys: `Some answers were assumed; edit .vibe-bill/config.json or rerun /vibe-bill (/vibe-bill:vibe-bill if installed as a plugin) to answer them.`
 - If unverified web-searched prices were used: `Unverified prices (web search): <names>; check the report.`
 - No env names, no code, no other dollar figures.

@@ -59,3 +59,10 @@ test("AC8 committed example SVG equals a fresh render of the fixture", async () 
   expect(rd(join(d, ".vibe-bill/out/receipt.svg"))).toBe(rd("docs/img/example-receipt.svg"));
   expect(existsSync("docs/img/example-receipt.png")).toBe(true);
 }, 60000);
+
+test("plugin.json agrees with SKILL.md and package.json", () => {
+  const p = JSON.parse(rd(".claude-plugin/plugin.json")), pkg = JSON.parse(rd("package.json"));
+  expect(p.name).toBe(rd("skills/vibe-bill/SKILL.md").match(/^name:\s*(\S+)/m)![1]);
+  expect(p.version).toBe(pkg.version);
+  expect(p.license).toBe(pkg.license);
+});
