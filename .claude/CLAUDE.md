@@ -1,6 +1,6 @@
 # vibe-bill
 
-Claude Code skill (`/vibe-bill`) that estimates what a vibe-coded app will cost to run at 100 / 1k / 10k / 100k users, flags code patterns that inflate the bill, and renders a shareable receipt image plus a plain-language report. See [README.md](README.md) for users and [CONTRIBUTING.md](CONTRIBUTING.md) for contributors.
+Claude Code skill (`/vibe-bill`, or `/vibe-bill:vibe-bill` as a plugin) that estimates what a vibe-coded app will cost to run at 100 / 1k / 10k / 100k users, flags code patterns that inflate the bill, and renders a shareable receipt image plus a plain-language report. See [README.md](../README.md) for users and [CONTRIBUTING.md](../CONTRIBUTING.md) for contributors.
 
 ## Product rules (non-negotiable)
 

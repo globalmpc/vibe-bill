@@ -16,29 +16,36 @@ vibe-bill is a Claude Code skill. Type `/vibe-bill` in your project and it:
 
 You need [Claude Code](https://claude.com/claude-code) and Node 22 or newer (check with `node -v`).
 
-**Easiest:** run this in your project's folder.
+### Install (recommended)
 
-```bash
-npx skills add globalmpc/vibe-bill -a claude-code
+Run these inside Claude Code:
+
+```
+/plugin marketplace add globalmpc/vibe-tools
+/plugin install vibe-bill@vibe-tools
 ```
 
-**No npx?** Copy it by hand instead (Node 20 is enough to run the skill itself):
+### Manual install
+
+Copy the skill folder by hand (Node 20 is enough to run the skill itself):
 
 ```bash
 git clone https://github.com/globalmpc/vibe-bill.git /tmp/vibe-bill
-mkdir -p .claude/skills && cp -r /tmp/vibe-bill/skills/vibe-bill .claude/skills/
+mkdir -p ~/.claude/skills && cp -r /tmp/vibe-bill/skills/vibe-bill ~/.claude/skills/
 ```
 
-Or just ask Claude Code: *"Install the vibe-bill skill from https://github.com/globalmpc/vibe-bill into this project."*
+That installs it for every project. For this project only, use `.claude/skills/` instead of `~/.claude/skills/`. It is then invoked as `/vibe-bill`.
 
 ## Use it
 
 1. Open your app's folder in Claude Code.
-2. Type `/vibe-bill`.
+2. Type `/vibe-bill` (`/vibe-bill:vibe-bill` if you installed the plugin).
 3. Answer up to 4 quick questions, like which AI model you use in production and which plan you pay for. Not sure? Pick your best guess; anything you skip is assumed and marked as assumed.
 4. Open `.vibe-bill/out/receipt.png`. That's your receipt. `.vibe-bill/out/report.md` explains the numbers.
 
-Want no questions at all? Type `/vibe-bill --no-questions`.
+Want no questions at all? Type `/vibe-bill --no-questions` (`/vibe-bill:vibe-bill --no-questions` as a plugin).
+
+The examples below use the short form `/vibe-bill`; as a plugin, use `/vibe-bill:vibe-bill`.
 
 **Share the receipt, not the report.** The receipt never shows file names, secret names or secrets. The report does mention file names from your code.
 
@@ -82,7 +89,7 @@ By default, vibe-bill uses a saved price list, so running it twice gives the sam
 - **AI model prices:** want today's? Ask for fresh prices. It downloads the current OpenRouter list, and the price date on the receipt changes to today. Two ways to ask:
   - Right after a run, tell Claude: *"Run it again with fresh prices."*
   - Or start with it: `/vibe-bill . use fresh prices` (the `.` means "this folder").
-- **Supabase, Vercel, Clerk, Resend, Stripe:** these only change when the skill is updated. If the receipt says "may be outdated", reinstall the skill to get the latest.
+- **Supabase, Vercel, Clerk, Resend, Stripe:** these only change when the skill is updated. If the receipt says "may be outdated", update the plugin (`claude plugin update vibe-bill@vibe-tools`, or `/plugin marketplace update vibe-tools` first if you installed from a session) or reinstall the skill to get the latest.
 
 ## Using a proxy or gateway (9router, LiteLLM, ...)?
 
@@ -126,3 +133,7 @@ Price corrections are the most useful help. See [CONTRIBUTING.md](CONTRIBUTING.m
 ## License
 
 MIT, see [LICENSE](LICENSE). Third-party parts bundled in `skills/vibe-bill/scripts/` keep their own licenses and are listed in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+
+---
+
+Maintained by [Global MPC (Mineral Project Coin)](https://globalmpc.tech). Official site: https://globalmpc.tech

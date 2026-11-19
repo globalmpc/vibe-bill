@@ -233,7 +233,7 @@ Never on the receipt: file paths, line numbers, env names or values, secrets.
 6. What this estimate can't know (real traffic, negotiated discounts, free credits, services not detected).
 7. Technical notes: call sites with file and line (never the free-text `notes`).
 
-## 11. `/vibe-bill` skill (product)
+## 11. `/vibe-bill` skill (product; `/vibe-bill:vibe-bill` when installed as a plugin)
 
 1. Run `detect`.
 2. Run `questions`; if any, ask them in **one** multiple-choice batch; save with `answer`. If the user isn't there, skip this. Either way step 5 runs `calc --no-questions`.
