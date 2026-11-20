@@ -16,14 +16,15 @@ vibe-bill is a Claude Code skill. Type `/vibe-bill` in your project and it:
 
 You need [Claude Code](https://claude.com/claude-code) and Node 22 or newer (check with `node -v`).
 
-### Install (recommended)
+### Install with npx (recommended)
 
-Run these inside Claude Code:
+Run this in a terminal, in your app's folder (or anywhere, with `-g` for all projects):
 
+```bash
+npx skills add globalmpc/vibe-bill
 ```
-/plugin marketplace add globalmpc/vibe-tools
-/plugin install vibe-bill@vibe-tools
-```
+
+Pick Claude Code when it asks which agent to install for. It is then invoked as `/vibe-bill`.
 
 ### Manual install
 
@@ -39,13 +40,11 @@ That installs it for every project. For this project only, use `.claude/skills/`
 ## Use it
 
 1. Open your app's folder in Claude Code.
-2. Type `/vibe-bill` (`/vibe-bill:vibe-bill` if you installed the plugin).
+2. Type `/vibe-bill`.
 3. Answer up to 4 quick questions, like which AI model you use in production and which plan you pay for. Not sure? Pick your best guess; anything you skip is assumed and marked as assumed.
 4. Open `.vibe-bill/out/receipt.png`. That's your receipt. `.vibe-bill/out/report.md` explains the numbers.
 
-Want no questions at all? Type `/vibe-bill --no-questions` (`/vibe-bill:vibe-bill --no-questions` as a plugin).
-
-The examples below use the short form `/vibe-bill`; as a plugin, use `/vibe-bill:vibe-bill`.
+Want no questions at all? Type `/vibe-bill --no-questions`.
 
 **Share the receipt, not the report.** The receipt never shows file names, secret names or secrets. The report does mention file names from your code.
 
@@ -89,7 +88,7 @@ By default, vibe-bill uses a saved price list, so running it twice gives the sam
 - **AI model prices:** want today's? Ask for fresh prices. It downloads the current OpenRouter list, and the price date on the receipt changes to today. Two ways to ask:
   - Right after a run, tell Claude: *"Run it again with fresh prices."*
   - Or start with it: `/vibe-bill . use fresh prices` (the `.` means "this folder").
-- **Supabase, Vercel, Clerk, Resend, Stripe:** these only change when the skill is updated. If the receipt says "may be outdated", update the plugin (`claude plugin update vibe-bill@vibe-tools`, or `/plugin marketplace update vibe-tools` first if you installed from a session) or reinstall the skill to get the latest.
+- **Supabase, Vercel, Clerk, Resend, Stripe:** these only change when the skill is updated. If the receipt says "may be outdated", update the skill (`npx skills update`) or reinstall it to get the latest.
 
 ## Using a proxy or gateway (9router, LiteLLM, ...)?
 
