@@ -28,7 +28,7 @@ npm run typecheck   # tsc --noEmit
 
 ## Releasing
 
-Bump `version` in `.claude-plugin/plugin.json` and keep `package.json` equal. Run `npm run build` and the tests, commit the rebuilt bundle, push. Plugin users on a cached copy get nothing unless `version` changes. They then run `/plugin marketplace update vibe-tools` or `claude plugin update vibe-bill@vibe-tools` (or get it automatically with auto-update on). Do not set `version` in the vibe-tools marketplace entry. Optional: `claude plugin tag --push`.
+Bump `version` in `.claude-plugin/plugin.json` and keep `package.json` equal. Run `npm run build` and the tests, commit the rebuilt bundle, push. Users update with `npx skills update`.
 
 ## Secrets
 

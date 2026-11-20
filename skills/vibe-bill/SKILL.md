@@ -126,6 +126,6 @@ If calc or render reports a validation error, fix the named field in `usage.json
 
 - Copy the two summary lines that `render` printed (`total at ...` and `top fix: ...` or `top risk: ...`) verbatim.
 - `Receipt: P/.vibe-bill/out/receipt.png` (use `receipt.svg` if render printed `receipt.png skipped`) and `Report: P/.vibe-bill/out/report.md`.
-- If `P/.vibe-bill/config.json` has `assumed` keys: `Some answers were assumed; edit .vibe-bill/config.json or rerun /vibe-bill (/vibe-bill:vibe-bill if installed as a plugin) to answer them.`
+- If `P/.vibe-bill/config.json` has `assumed` keys: `Some answers were assumed; edit .vibe-bill/config.json or rerun /vibe-bill to answer them.`
 - If unverified web-searched prices were used: `Unverified prices (web search): <names>; check the report.`
 - No env names, no code, no other dollar figures.
